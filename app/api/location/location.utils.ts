@@ -15,3 +15,8 @@ const locationData = [
     {"name": "Dortmund", "longitude": 7.4653, "latitude": 51.5139},
     {"name": "Essen", "longitude": 7.0166, "latitude": 51.4566}
   ]
+
+
+  const getLocations = ()=>{
+       return locationData
+  }
