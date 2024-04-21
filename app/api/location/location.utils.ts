@@ -45,3 +45,4 @@ const getLocationByName = (location: string) => {
 };
 
 
+export { getLocations , getLocationByName}
