@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function Default() {
-  return <div>Default page got airQualityIndex</div>;
+  return <div>Deafult page for temparature</div>;
 }

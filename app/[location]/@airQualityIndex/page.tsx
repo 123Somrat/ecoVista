@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export default function AirQualityIndex() {
-  return (
-    <div>AirQuality index</div>
-  )
+  return <div>AirQuality index</div>;
 }
