@@ -8,7 +8,7 @@ type location = {
 export async function GET(
   _request: NextApiRequest,
   { params }: { params: { name: string } }
-,response:NextApiResponse<location>) {
+,_response:NextApiResponse<location>) {
   const locationName = params?.name;
   const locationData = getLocationByName(locationName);
   return Response?.json(locationData);
