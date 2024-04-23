@@ -1,7 +1,5 @@
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>eco vista</h1>
-    </main>
-  );
+import GetLocation from "./components/GetLocation";
+
+export default function HomePage() {
+  return <GetLocation />
 }
