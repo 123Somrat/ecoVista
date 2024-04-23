@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
-
+import Image from "next/image";
 export default function LocationDetector() {
   const [loading, setLoading] = useState(false);
 
@@ -15,7 +15,7 @@ export default function LocationDetector() {
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
-        
+
         // get the latitude and latitude for current position
         const longitude = position.coords.longitude;
         const latitude = position.coords.latitude;
@@ -34,8 +34,17 @@ export default function LocationDetector() {
   }, [pathName, searchParams]);
 
   return (
-    <div>
-      <h1>Finding your location.....</h1>
+    <div className="flex flex-col justify-center items-center h-screen bg-slate-700 text-white">
+       {loading && (<>
+              <Image 
+              src='/network.gif' 
+              alt='loading image'
+              height = {500}
+              width = {500}
+              className="border rounded-md my-4"
+              />
+              <p className="text-center text-4xl">Detecting location......</p>
+        </>)}
     </div>
   );
 }
