@@ -37,3 +37,16 @@ export const getWindData = async (lat: string, lon: string) => {
     console.error(error);
   }
 };
+
+// Fetching airquality data
+
+export const getAirQualityData  = async (lat:string,lon:string)=>{
+      try{
+         const response =await  fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${process.env.OPEN_WEATHER_MAP_API_KEY}`)
+         const airqualityData = await response.json()
+         return airqualityData?.list[0]
+
+      }catch(error){
+         console.log(error)
+      }
+}
