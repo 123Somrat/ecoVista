@@ -1,6 +1,22 @@
+interface AirQualityData {
+  main: {
+      aqi: number;
+  };
+  components: {
+      co: number;
+      no: number;
+      no2: number;
+      o3: number;
+      so2: number;
+      pm2_5: number;
+      pm10: number;
+      nh3: number;
+  };
+  dt: number;
+}
 
-
-export default function Card({children}) {
+export default function Card({children}:{children:AirQualityData}) {
+  console.log(children)
   return (
     <div className="col-span-12 lg:col-span-4 2xl:col-span-3">
     <div className="card">
