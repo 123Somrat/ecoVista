@@ -1,3 +1,5 @@
+import TemparatureComponent from "@/app/components/TemparatureComponent";
+
 export default function TemparaturePage() {
-  return <div>Temparature skeleton</div>;
+  return <TemparatureComponent />;
 }
