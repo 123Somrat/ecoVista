@@ -2,11 +2,7 @@ import { getAirQualityData } from "@/lib/weather-info";
 import Image from "next/image";
 import Card from "./Card";
 import getAirQualityRating from "@/lib/getAirQualityRating";
-
-type propTypes = {
-  lat: string;
-  lon: string;
-};
+import { propTypes } from "@/lib/types";
 
 export default async function AQIComponent({ lat, lon }: propTypes) {
   const { main, components } = await getAirQualityData(lat, lon);
