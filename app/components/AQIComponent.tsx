@@ -1,6 +1,7 @@
 import { getAirQualityData } from "@/lib/weather-info";
 import Image from "next/image";
 import Card from "./Card";
+import getAirQualityRating from "@/lib/getAirQualityRating";
 
 type propTypes = {
   lat: string;
@@ -9,12 +10,10 @@ type propTypes = {
 
 export default async function AQIComponent({ lat, lon }: propTypes) {
   const { main, components } = await getAirQualityData(lat, lon);
-  console.log(components)
-  const { co , no , no2 , o3 , so2 ,  pm2_5 }=components
-  return (
-  
-    <Card>
+  const { co, no, no2, o3, so2, pm2_5 } = components;
 
+  return (
+    <Card>
       <h6 className="feature-name">Air Pollution & Quality</h6>
 
       <div className="mt-3 space-y-2 lg:space-y-3">
@@ -30,7 +29,7 @@ export default async function AQIComponent({ lat, lon }: propTypes) {
             Air Quality Index
           </div>
           <span className="text-right text-sm text-white lg:text-base">
-            Good
+            {getAirQualityRating(main?.aqi)}
           </span>
         </div>
 
@@ -126,12 +125,10 @@ export default async function AQIComponent({ lat, lon }: propTypes) {
             PM2.5
           </div>
           <span className="text-right text-sm text-white lg:text-base">
-            { pm2_5} µg/m³
+            {pm2_5} µg/m³
           </span>
         </div>
       </div>
-    
     </Card>
-    
   );
 }
