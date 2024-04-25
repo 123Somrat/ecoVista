@@ -1,7 +1,6 @@
 import AQIComponent from "@/app/components/AQIComponent";
 import React from "react";
-//{params }: { params: { location: string } },
-//{searchParams}: {searchParams : {latitude : string , longitude : string}}
+
 interface SearchParamsDetails {
   longitude: string;
   latitude: string;
