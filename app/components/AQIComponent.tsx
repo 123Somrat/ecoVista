@@ -1,4 +1,5 @@
 import { getAirQualityData } from "@/lib/weather-info";
+import Image from "next/image";
 import Card from "./Card";
 
 type propTypes = {
@@ -8,7 +9,8 @@ type propTypes = {
 
 export default async function AQIComponent({ lat, lon }: propTypes) {
   const { main, components } = await getAirQualityData(lat, lon);
-
+  console.log(components)
+  const { co , no , no2 , o3 , so2 ,  pm2_5 }=components
   return (
   
     <Card>
@@ -18,10 +20,12 @@ export default async function AQIComponent({ lat, lon }: propTypes) {
       <div className="mt-3 space-y-2 lg:space-y-3">
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-sm text-[#CADEE8] lg:text-base">
-            <img
+            <Image
               className="max-w-[18px]"
-              src="./assets/icons/icon_air_element.png"
+              src="/icon_air_element.png"
               alt="icon"
+              width={18}
+              height={18}
             />
             Air Quality Index
           </div>
@@ -32,85 +36,97 @@ export default async function AQIComponent({ lat, lon }: propTypes) {
 
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-sm text-[#CADEE8] lg:text-base">
-            <img
+            <Image
               className="max-w-[18px]"
-              src="./assets/icons/icon_air_element.png"
+              src="/icon_air_element.png"
               alt="icon"
+              width={18}
+              height={18}
             />
             Carbon Monoxide
           </div>
           <span className="text-right text-sm text-white lg:text-base">
-            201.94 µg/m³
+            {co} µg/m³
           </span>
         </div>
 
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-sm text-[#CADEE8] lg:text-base">
-            <img
+            <Image
               className="max-w-[18px]"
-              src="./assets/icons/icon_air_element.png"
+              src="/icon_air_element.png"
               alt="icon"
+              width={18}
+              height={18}
             />
             Nitric Oxide
           </div>
           <span className="text-right text-sm text-white lg:text-base">
-            0.01877 ppm
+            {no} ppm
           </span>
         </div>
 
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-sm text-[#CADEE8] lg:text-base">
-            <img
+            <Image
               className="max-w-[18px]"
-              src="./assets/icons/icon_air_element.png"
+              src="/icon_air_element.png"
               alt="icon"
+              width={18}
+              height={18}
             />
             Nitrogen Dioxide
           </div>
           <span className="text-right text-sm text-white lg:text-base">
-            0.7711 ppm
+            {no2} ppm
           </span>
         </div>
 
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-sm text-[#CADEE8] lg:text-base">
-            <img
+            <Image
               className="max-w-[18px]"
-              src="./assets/icons/icon_air_element.png"
+              src="/icon_air_element.png"
               alt="icon"
+              width={18}
+              height={18}
             />
             Ozone
           </div>
           <span className="text-right text-sm text-white lg:text-base">
-            68.664 µg/m³
+            {o3} µg/m³
           </span>
         </div>
 
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-sm text-[#CADEE8] lg:text-base">
-            <img
+            <Image
               className="max-w-[18px]"
-              src="./assets/icons/icon_air_element.png"
+              src="/icon_air_element.png"
               alt="icon"
+              width={18}
+              height={18}
             />
             Sulfur Dioxide
           </div>
           <span className="text-right text-sm text-white lg:text-base">
-            0.6407 ppm
+            {so2} ppm
           </span>
         </div>
 
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-sm text-[#CADEE8] lg:text-base">
-            <img
+            <Image
               className="max-w-[18px]"
-              src="./assets/icons/icon_air_element.png"
+              src="/icon_air_element.png"
               alt="icon"
+              width={18}
+              height={18}
             />
             PM2.5
           </div>
           <span className="text-right text-sm text-white lg:text-base">
-            0.5 µg/m³
+            { pm2_5} µg/m³
           </span>
         </div>
       </div>
