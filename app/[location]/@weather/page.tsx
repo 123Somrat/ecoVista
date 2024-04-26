@@ -5,5 +5,5 @@ export default function WeatherPage({
   params,
   searchParams: { latitude, longitude },
 }: SearchParams) {
-  return <WeatherComponent />;
+  return <WeatherComponent lat={latitude} lon={longitude} />;
 }
