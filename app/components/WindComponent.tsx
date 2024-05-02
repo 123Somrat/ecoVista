@@ -14,8 +14,8 @@ export default async function WindComponent({ lat, lon }: propTypes) {
           className="max-w-20"
           src="/icon_wind.png"
           alt="rain icon"
-          width={18}
-          height={18}
+          width={80}
+          height={80}
         />
         <h3 className="feature-title">{speed} meter/sec</h3>
         <span className="feature-name">{deg} degress</span>
