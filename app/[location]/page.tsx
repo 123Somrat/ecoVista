@@ -1,6 +1,8 @@
+import { SearchParams } from "@/lib/types"
 
 
-export default function page() {
+export default function LocationPage() {
+     
   return (
     <div>
          <h1>Location Page</h1>
