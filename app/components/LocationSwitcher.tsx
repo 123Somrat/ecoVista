@@ -1,13 +1,15 @@
 "use client";
 import { getLocationLanList } from "@/lib/getLOcationInfo";
+import { location } from "@/lib/types";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function LocationSwitcher() {
   // Location Switcher state
   const [showLocationLists, setShowLocationList] = useState<boolean>(false);
   // Hold fetch location
-  const [locations, setLocations] = useState([]);
+  const [locations, setLocations] = useState<location[]>([]);
 
   // Fetching location data
   useEffect(() => {
@@ -43,10 +45,15 @@ export default function LocationSwitcher() {
             role="list"
             className="divide-y divide-gray-100 [&>*]:py-2 [&>li]:cursor-pointer"
           >
-            <li>Kolkata</li>
-            <li>Dhaka</li>
-            <li>London</li>
-            <li>Amsterdam</li>
+            {locations.map((info) => (
+              <li key={info.name} className="text-black">
+                <Link
+                  href={`/${info.name}?latitude=${info.latitude}&longitude=${info.longitude}`}
+                >
+                {info.name}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       )}

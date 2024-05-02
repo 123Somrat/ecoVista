@@ -16,3 +16,8 @@ export interface SearchParamsDetails {
     lon: string;
   };
 
+ export type location = {
+    name: string;
+    longitude: number;
+    latitude: number;
+  };
