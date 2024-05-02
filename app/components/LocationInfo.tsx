@@ -1,7 +1,7 @@
 import { getLocationInfoData } from "@/lib/getLOcationInfo";
 import { propTypes } from "@/lib/types";
 import Card from "./Card";
-import Image from "next/image";
+import LocationSwitcher from "./LocationSwitcher";
 export default async function LocationInfo({ lat, lon }: propTypes) {
   const { continent, countryName, city } = await getLocationInfoData(lat, lon);
 
@@ -13,6 +13,7 @@ export default async function LocationInfo({ lat, lon }: propTypes) {
             {continent}
           </h2>
         </div>
+        <LocationSwitcher/>
         <p className="text-lg text-[#C4C4C4] lg:text-xl">
           {countryName} | {city}
         </p>
